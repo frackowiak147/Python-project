@@ -1,1 +1,10 @@
+##Pobranie pliku z dysku
+import pandas as pd
+path = 'E:/CDV/Semestr 3 i 4/Uczenie maszynowe Python/Projekt/Podejscie_2/Screen Time Data.csv'
+df = pd.read_csv('E:/CDV/Semestr 3 i 4/Uczenie maszynowe Python/Projekt/Podejscie_2/Screen Time Data.csv')
+print(df.to_string()) 
+print(df.info()) 
+
+
+# pobieranie pliku prosto z internetu:
 

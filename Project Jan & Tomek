@@ -1,4 +1,6 @@
 ##Pobranie pliku z dysku
+#Żródło:
+# https://www.kaggle.com/datasets/thedevastator/how-does-daily-yoga-impact-screen-time-habits
 import pandas as pd
 path = 'E:/CDV/Semestr 3 i 4/Uczenie maszynowe Python/Projekt/Podejscie_2/Screen Time Data.csv'
 df = pd.read_csv('E:/CDV/Semestr 3 i 4/Uczenie maszynowe Python/Projekt/Podejscie_2/Screen Time Data.csv')

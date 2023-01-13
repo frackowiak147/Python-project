@@ -15,5 +15,17 @@ table_joga = df.to_string()
 print(table_joga)
 print(df.info()) 
 
+#import os
+import functions
+chose = 1
+ 
+        
+while (chose !="0"):
+
+    #os.system('cls')
+    functions.wyswietl()
+    chose = input("Wpisz wybor: ")
+    functions.wybory(chose) 
+
 
 

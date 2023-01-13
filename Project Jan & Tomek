@@ -1,12 +1,19 @@
-##Pobranie pliku z dysku
-#Żródło:
-# https://www.kaggle.com/datasets/thedevastator/how-does-daily-yoga-impact-screen-time-habits
+#Import danych z pliku pobranego z https://www.kaggle.com/datasets/thedevastator/how-does-daily-yoga-impact-screen-time-habits
 import pandas as pd
 path = 'E:/CDV/Semestr 3 i 4/Uczenie maszynowe Python/Projekt/Podejscie_2/Screen Time Data.csv'
-df = pd.read_csv('E:/CDV/Semestr 3 i 4/Uczenie maszynowe Python/Projekt/Podejscie_2/Screen Time Data.csv')
-print(df.to_string()) 
+df = pd.read_csv(path) #zapis Dataframe do zmiennej
+#Poprawa wyswietlania zmiennych w tabeli
+df.rename(columns = {'Reading and Reference':'Read & Ref'},inplace = True)
+df.rename(columns = {'Health and Fitness':'Fit'},inplace = True)
+df.rename(columns = {'Total Screen Time ':'Screen Time'},inplace = True)
+del df['index']
+df.rename(columns = {'Productivity':'Product.'},inplace = True)
+df.rename(columns = {'Creativity':'Creat.'},inplace = True)
+df.rename(columns = {'Entertainment':'Ente.'},inplace = True)
+ 
+table_joga = df.to_string()
+print(table_joga)
 print(df.info()) 
 
 
-# pobieranie pliku prosto z internetu:
 

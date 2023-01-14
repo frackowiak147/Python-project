@@ -1,28 +1,21 @@
-#Import danych z pliku pobranego z https://www.kaggle.com/datasets/thedevastator/how-does-daily-yoga-impact-screen-time-habits
-import pandas as pd
-path = 'E:/CDV/Semestr 3 i 4/Uczenie maszynowe Python/Projekt/Podejscie_2/Screen Time Data.csv'
-df = pd.read_csv(path) #zapis Dataframe do zmiennej
-#Poprawa wyswietlania zmiennych w tabeli
-df.rename(columns = {'Reading and Reference':'Read & Ref'},inplace = True)
-df.rename(columns = {'Health and Fitness':'Fit'},inplace = True)
-df.rename(columns = {'Total Screen Time ':'Screen Time'},inplace = True)
-del df['index']
-df.rename(columns = {'Productivity':'Product.'},inplace = True)
-df.rename(columns = {'Creativity':'Creat.'},inplace = True)
-df.rename(columns = {'Entertainment':'Ente.'},inplace = True)
- 
-table_joga = df.to_string()
-print(table_joga)
-print(df.info()) 
+# Wykorzystanie bibliotek
 
-#import os# Pobranie funkcji z folderu functions.py
+from sklearn.model_selection import train_test_split
+from sklearn import model_selection, preprocessing, linear_model, naive_bayes, metrics
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import pickle
+# Pobranie funkcji z folderu functions.py
 import functions
 # Tu mial byc pakiet systemowy czyszczacy konsole ale cos nie dziala
 # import os
 # Import pakietu do modyfikacji tabel danych
 import pandas as pd
-path = 'E:/CDV/Semestr 3 i 4/Uczenie maszynowe Python/Projekt/Podejscie_2/Screen Time Data.csv'
+
+path = 'Screen Time Data.csv'
 df = pd.read_csv(path)  # zapis Dataframe do zmiennej
+
 # Poprawa wyswietlania zmiennych w tabeli
 df.rename(columns={'Reading and Reference': 'Read & Ref'}, inplace=True)
 df.rename(columns={'Health and Fitness': 'Fit'}, inplace=True)
@@ -36,26 +29,9 @@ tab_info = df.info()
 # --------------------------------------------------------------------- #
 chose = "9"
 functions.powitanie()
-while (chose !="0"):
+while (chose!= "0"):
 
     # os.system('cls')
     functions.wyswietl()
     chose = input("Wpisz wybor: ")
     functions.wybory(chose, table_joga, tab_info)
-
-
-    print(table_joga)
-    print(df.info())
-import functions
-chose = 1
- 
-        
-while (chose !="0"):
-
-    #os.system('cls')
-    functions.wyswietl()
-    chose = input("Wpisz wybor: ")
-    functions.wybory(chose) 
-
-
-

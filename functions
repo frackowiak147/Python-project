@@ -1,14 +1,7 @@
-def wybory(chose):
-    if chose == "1":
-        print("1 = tabela")
-    elif chose == "2":
-        print("2 - info")
-    elif chose == "3":
-        print("3 - korelacja")
-    elif chose == "0":
-        print("0 - zakoncz")
-    elif (chose != "1" or chose != "2" or chose != "3" or chose != "0"):
-        print("Zly wybor")
+
+def powitanie():
+    print('Witaj w programie wyswietlajacym korelacje wplywu jogi na styl zycia...')
+    print('Wybierz akcje jaka chcialbys wykonac')
 
 def wyswietl():
     print("Wybierz opcje ")
@@ -16,6 +9,22 @@ def wyswietl():
     print("2 - info ")
     print("3 - korelacja")
     print("0 - zakoncz ")
+
+def wybory(chose, table_joga, tab_info):
+    if chose == "1":
+        print("1 = tabela")
+        print(table_joga)
+    elif chose == "2":
+        print("2 - info")
+        print(tab_info)
+    elif chose == "3":
+        print("3 - korelacja")
+    elif chose == "0":
+        print("0 - zakoncz")
+    elif (chose != "1" or chose != "2" or chose != "3" or chose != "0"):
+        print("Zly wybor")
+
+
     
 
 

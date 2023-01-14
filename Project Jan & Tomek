@@ -3,15 +3,15 @@ from sklearn.model_selection import train_test_split
 from sklearn import model_selection, preprocessing, linear_model, naive_bayes, metrics
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FormatStrFormatter
 import seaborn as sns
 import pickle
 # Pobranie funkcji z folderu functions.py
-
+import seaborn as sns
 import functions
 # Import pakietu do modyfikacji tabel danych
 
 import pandas as pd
-from matplotlib.ticker import FormatStrFormatter
 # ----------------------------------------------------------------------------------------------------
 path = 'Screen Time Data.csv'
 df = pd.read_csv(path, encoding = "ISO-8859-1")  # zapis Dataframe do zmiennej
@@ -82,3 +82,21 @@ while (chose!= "0"):
             plt.show()
 
         display_statistics()
+
+# wyznaczenie macierzy korelacji
+
+    elif chose == "6":
+        korelacja = df.corr()
+        print(korelacja)
+
+        #fig, ax = plt.subplots(figsize=(10, 10))
+
+        #colormap = sns.color_palette("BrBG", 10)
+
+        #sns.heatmap(korelacja,
+        #            cmap=colormap,
+        #            annot=True,
+        #            fmt=".2f")
+        #ax.set_yticklabels(df.columns);
+
+        #plt.show()

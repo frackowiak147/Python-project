@@ -54,11 +54,3 @@ def wybory(chose, table_joga, tab_info):
     elif (chose != "1" or chose != "2" or chose != "3" or chose != "0" or chose != "4" or chose != "5" or chose != "6" or chose != "7"):
         print("Zly wybor")
 
-
-
-
-
-
-    
-
-

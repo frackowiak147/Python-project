@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn import model_selection, preprocessing, linear_model, naive_bayes, metrics
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 import pickle
 # Pobranie funkcji z folderu functions.py
 import functions
@@ -11,6 +12,7 @@ import functions
 # import os
 # Import pakietu do modyfikacji tabel danych
 import pandas as pd
+
 
 path = 'Screen Time Data.csv'
 df = pd.read_csv(path, encoding = "ISO-8859-1")  # zapis Dataframe do zmiennej
@@ -20,9 +22,9 @@ df.rename(columns={'Reading and Reference': 'Read & Ref'}, inplace=True)
 df.rename(columns={'Health and Fitness': 'Fit'}, inplace=True)
 df.rename(columns={'Total Screen Time ': 'Screen Time'}, inplace=True)
 del df['index']
-df.rename(columns={'Productivity': 'Product.'}, inplace=True)
-df.rename(columns={'Creativity': 'Creat.'}, inplace=True)
-df.rename(columns={'Entertainment': 'Ente.'}, inplace=True)
+df.rename(columns={'Productivity': 'Product'}, inplace=True)
+df.rename(columns={'Creativity': 'Creat'}, inplace=True)
+df.rename(columns={'Entertainment': 'Ente'}, inplace=True)
 table_joga = df.to_string()
 tab_info = df.info()
 # --------------------------------------------------------------------- #
@@ -32,10 +34,26 @@ functions.powitanie()
 # df['Reading and Reference'].hist()
 # df['Yoga'].hist(bins=2)
 
-df.plot(x='Fit',y='Product.', legend=False)
 while (chose!= "0"):
 
     # os.system('cls')
     functions.wyswietl()
     chose = input("Wpisz wybor: ")
     functions.wybory(chose, table_joga, tab_info)
+    if chose  == "3":
+        # wyznaczenie macierzy korelacji
+
+        correlations = df.corr()
+        fig, ax = plt.subplots(figsize=(11, 9))
+        colormap = sns.color_palette("BrBG", 9)
+        sns.heatmap(correlations,
+                    cmap=colormap,
+                    annot=True,
+                    fmt=".2f")
+        ax.set_yticklabels(df.columns);
+        plt.show()
+
+
+    elif chose == "4":
+        df.plot(x='Fit', y='Read & Ref', legend=True)
+        plt.show()

@@ -1,3 +1,11 @@
+# Wykorzystanie bibliotek
+
+from sklearn.model_selection import train_test_split
+from sklearn import model_selection, preprocessing, linear_model, naive_bayes, metrics
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import pickle
 
 def powitanie():
     print('Witaj w programie wyswietlajacym korelacje wplywu jogi na styl zycia...')
@@ -8,6 +16,7 @@ def wyswietl():
     print("1 - tabela ")
     print("2 - info ")
     print("3 - korelacja")
+    print("4 - inne")
     print("0 - zakoncz ")
 
 def wybory(chose, table_joga, tab_info):
@@ -28,8 +37,14 @@ def wybory(chose, table_joga, tab_info):
         print("Yoga - Odbyte ćwiczenia Yogi ")
     elif chose == "3":
         print("3 - korelacja")
+    elif chose == "4":
+        print("3 - inne")
     elif chose == "0":
         print("0 - zakoncz")
-    elif (chose != "1" or chose != "2" or chose != "3" or chose != "0"):
+    elif (chose != "1" or chose != "2" or chose != "3" or chose != "0" or chose != "4"):
         print("Zly wybor")
+
+
+    
+
 

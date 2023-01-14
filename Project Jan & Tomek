@@ -1,6 +1,6 @@
 # Wykorzystanie bibliotek
 from sklearn.model_selection import train_test_split
-from sklearn import model_selection, preprocessing, linear_model, naive_bayes, metrics
+from sklearn import model_selection, preprocessing, linear_model, naive_bayes, metrics, svm, ensemble
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
@@ -15,7 +15,6 @@ import pandas as pd
 # ----------------------------------------------------------------------------------------------------
 path = 'Screen Time Data.csv'
 df = pd.read_csv(path, encoding = "ISO-8859-1")  # zapis Dataframe do zmiennej
-df.head()
 df2 = df
 del df2['Date']
 del df2['Week Day']
@@ -153,3 +152,4 @@ while (chose!= "0"):
         print("MAE - Mean Abolute Error (Sredni blad bezwzgledny)")
         print("MSE - Mean Squared Error- (Sredni blad do kwadratu)")
         plt.show()
+        

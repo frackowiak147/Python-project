@@ -3,7 +3,6 @@
 from sklearn.model_selection import train_test_split
 from sklearn import model_selection, preprocessing, linear_model, naive_bayes, metrics
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 import pickle
 # Pobranie funkcji z folderu functions.py
@@ -14,8 +13,8 @@ import functions
 import pandas as pd
 
 path = 'Screen Time Data.csv'
-df = pd.read_csv(path)  # zapis Dataframe do zmiennej
-
+df = pd.read_csv(path, encoding = "ISO-8859-1")  # zapis Dataframe do zmiennej
+df.head()
 # Poprawa wyswietlania zmiennych w tabeli
 df.rename(columns={'Reading and Reference': 'Read & Ref'}, inplace=True)
 df.rename(columns={'Health and Fitness': 'Fit'}, inplace=True)
@@ -29,6 +28,11 @@ tab_info = df.info()
 # --------------------------------------------------------------------- #
 chose = "9"
 functions.powitanie()
+# Wykresy
+# df['Reading and Reference'].hist()
+# df['Yoga'].hist(bins=2)
+
+df.plot(x='Fit',y='Product.', legend=False)
 while (chose!= "0"):
 
     # os.system('cls')

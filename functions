@@ -20,6 +20,7 @@ def wyswietl():
     print("4 - histogram")
     print("5 - Wartosc max")
     print("6 - Korelacja")
+    print("7 - Testowanie modeli")
     print("0 - Zakoncz ")
 
 def wybory(chose, table_joga, tab_info):
@@ -46,7 +47,18 @@ def wybory(chose, table_joga, tab_info):
         print("5 - Wart max")
     elif chose == "6":
         print("6 - Wart korelacji")
+    elif chose == "7":
+        print("7 - Testowanie modeli")
     elif chose == "0":
         print("0 - zakoncz")
-    elif (chose != "1" or chose != "2" or chose != "3" or chose != "0" or chose != "4" or chose != 5):
+    elif (chose != "1" or chose != "2" or chose != "3" or chose != "0" or chose != "4" or chose != "5" or chose != "6" or chose != "7"):
         print("Zly wybor")
+
+
+
+
+
+
+    
+
+

@@ -1,5 +1,4 @@
 # Wykorzystanie bibliotek
-
 from sklearn.model_selection import train_test_split
 from sklearn import model_selection, preprocessing, linear_model, naive_bayes, metrics
 import numpy as np
@@ -7,17 +6,18 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pickle
 # Pobranie funkcji z folderu functions.py
+
 import functions
-# Tu mial byc pakiet systemowy czyszczacy konsole ale cos nie dziala
-# import os
 # Import pakietu do modyfikacji tabel danych
+
 import pandas as pd
-
-
+from matplotlib.ticker import FormatStrFormatter
+# ----------------------------------------------------------------------------------------------------
 path = 'Screen Time Data.csv'
 df = pd.read_csv(path, encoding = "ISO-8859-1")  # zapis Dataframe do zmiennej
 df.head()
 # Poprawa wyswietlania zmiennych w tabeli
+
 df.rename(columns={'Reading and Reference': 'Read & Ref'}, inplace=True)
 df.rename(columns={'Health and Fitness': 'Fit'}, inplace=True)
 df.rename(columns={'Total Screen Time ': 'Screen Time'}, inplace=True)
@@ -28,32 +28,57 @@ df.rename(columns={'Entertainment': 'Ente'}, inplace=True)
 table_joga = df.to_string()
 tab_info = df.info()
 # --------------------------------------------------------------------- #
+
 chose = "9"
 functions.powitanie()
-# Wykresy
-# df['Reading and Reference'].hist()
-# df['Yoga'].hist(bins=2)
 
 while (chose!= "0"):
 
-    # os.system('cls')
     functions.wyswietl()
     chose = input("Wpisz wybor: ")
     functions.wybory(chose, table_joga, tab_info)
-    if chose  == "3":
-        # wyznaczenie macierzy korelacji
+    if chose == "3":
+# Wykres pudelkowy
 
-        correlations = df.corr()
-        fig, ax = plt.subplots(figsize=(11, 9))
-        colormap = sns.color_palette("BrBG", 9)
-        sns.heatmap(correlations,
-                    cmap=colormap,
-                    annot=True,
-                    fmt=".2f")
-        ax.set_yticklabels(df.columns);
+        df['Screen Time'].plot(kind='box')
+        print("Total screen Time - Czas spedzony w telefonie [min]")
         plt.show()
-
+        df['Social Networking'].plot(kind='box')
+        print("Social Networking - Czas spedzony na portalach spolecznosciowych [min]")
+        plt.show()
+        df['Product'].plot(kind='box')
+        print("Productivity - Produktywne czynnosci")
+        plt.show()
+        df['Read & Ref'].plot(kind='box')
+        print("Reading & Reference -Czytanie, artykuły, podnoszenie umiejętności")
+        plt.show()
+# Histogram
 
     elif chose == "4":
-        df.plot(x='Fit', y='Read & Ref', legend=True)
+        df['Other'].hist()
+        print("Czestotliwosc wystepowania innych aktywnosci")
         plt.show()
+# Funkcja wyswietlajca wartosci max i min z wszystkich kolumn
+
+    elif chose == "5":
+        def display_statistics():
+
+            columns = [col for col in df.columns if col not in ['Date', 'Week Day']]
+            statistics = {}
+            for column_name in columns:
+                mean = df[column_name].mean()
+                median = df[column_name].median()
+                mode = df[column_name].mode()[0]
+                statistics[column_name] = {"Mean": mean, "Median": median, "Mode": mode}
+
+            fig, ax = plt.subplots(figsize=(10, 5))
+            ax.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
+            plt.title('Statistics')
+            plt.xlabel('Statistic')
+            plt.ylabel('Value')
+            for column_name, values in statistics.items():
+                plt.bar(values.keys(), values.values(), label=column_name)
+            plt.legend()
+            plt.show()
+
+        display_statistics()

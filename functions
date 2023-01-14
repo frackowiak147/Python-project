@@ -16,7 +16,16 @@ def wybory(chose, table_joga, tab_info):
         print(table_joga)
     elif chose == "2":
         print("2 - info")
-        print(tab_info)
+        print("Week Day - Dzien tygodnia")
+        print("Total screen Time - Czas spedzony w telefonie [min]")
+        print("Social Networking - Czas spedzony na portalach spolecznosciowych [min]")
+        print("Reading & Reference -Czytanie, artykuły, podnoszenie umiejętności")
+        print("Others - Inne")
+        print("Productivity - Produktywne czynnosci")
+        print("Health & Fitness Zdrowie i cwiczenia")
+        print("Entertainment - rozrywka")
+        print("Creativity - Kreatywność w danym dniu ")
+        print("Yoga - Odbyte ćwiczenia Yogi ")
     elif chose == "3":
         print("3 - korelacja")
     elif chose == "0":

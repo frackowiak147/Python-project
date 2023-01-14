@@ -16,6 +16,9 @@ import pandas as pd
 path = 'Screen Time Data.csv'
 df = pd.read_csv(path, encoding = "ISO-8859-1")  # zapis Dataframe do zmiennej
 df.head()
+df2 = df
+del df2['Date']
+del df2['Week Day']
 # Poprawa wyswietlania zmiennych w tabeli
 
 df.rename(columns={'Reading and Reference': 'Read & Ref'}, inplace=True)
@@ -86,9 +89,6 @@ while (chose!= "0"):
 # wyznaczenie macierzy korelacji
 
     elif chose == "6":
-        df2 = df
-        del df2['Date']
-        del df2['Week Day']
         korelacja = df2.corr()
         print(korelacja)
 
